@@ -183,8 +183,14 @@ const styleSheet = StyleSheet.create({
   },
 
   image1: {
-    width: "100%",
-    height: 50,
+    width: 150, 
+    height: 150, 
+    borderRadius: 30, 
+    marginLeft: 20, 
+    marginVertical: 10, 
+    alignSelf: "flex-start", 
+    resizeMode:"contain",
+    overflow:"hidden",
   },
 
   text1: {

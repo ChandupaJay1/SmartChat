@@ -29,7 +29,7 @@ export default function Home() {
 
       let response = await fetch(
         "https://352f-2407-c00-e006-10c5-9dbd-f4fa-1f44-ed8a.ngrok-free.app//SmartChat/LoadHomeData?id=" +
-          user.id
+        user.id
       );
 
       if (response.ok) {
@@ -55,9 +55,9 @@ export default function Home() {
     try {
       // Clear user data
       await AsyncStorage.removeItem("user");
-  
+
       // Ensure that navigation happens only after AsyncStorage is cleared
-      
+
       router.replace("/index");
       console.log("Navigating to /index");
     } catch (error) {
@@ -82,7 +82,7 @@ export default function Home() {
         data={getchatArray}
         renderItem={({ item }) => (
           <Pressable
-            style={styleSheet.view5}
+            style={styleSheet.view5} // Wrap the entire chat item
             onPress={() => {
               router.push({
                 pathname: "/chat",
@@ -90,7 +90,7 @@ export default function Home() {
               });
             }}
           >
-            <View style={item.other_user_status == 1 ? styleSheet.view6_2 : styleSheet.view6_1}>
+            <View style={styleSheet.avatarContainer}>
               {item.avatar_image_found ? (
                 <Image
                   source={
@@ -106,8 +106,17 @@ export default function Home() {
               )}
             </View>
 
-            <View style={styleSheet.view4}>
-              <Text style={styleSheet.text1}>{item.other_user_name}</Text>
+            <View style={styleSheet.textContainer}>
+              <View style={styleSheet.nameAndStatus}>
+                <Text style={styleSheet.text1}>{item.other_user_name}</Text>
+                {/* Online/Offline Status Dot */}
+                <View
+                  style={[
+                    styleSheet.statusDot,
+                    { backgroundColor: item.other_user_status == 1 ? "green" : "gray" },
+                  ]}
+                />
+              </View>
               <Text style={styleSheet.text4}>{item.message}</Text>
 
               <View style={styleSheet.view7}>
@@ -120,6 +129,8 @@ export default function Home() {
               </View>
             </View>
           </Pressable>
+
+
         )}
         estimatedItemSize={200}
       />
@@ -170,8 +181,11 @@ const styleSheet = StyleSheet.create({
 
   view5: {
     flexDirection: "row",
-    marginVertical: 10,
-    columnGap: 20,
+    alignItems: "center",  // Align items vertically in the same row
+    paddingVertical: 10,   // Vertical padding for each chat item
+    paddingHorizontal: 15, // Horizontal padding for spacing
+    borderBottomWidth: 1,  // Add a bottom border to separate chat items
+    borderBottomColor: "#ddd",  // Light gray border color
   },
 
   view6_1: {
@@ -200,9 +214,8 @@ const styleSheet = StyleSheet.create({
 
   text4: {
     fontFamily: "Montserrat-Regular",
-    fontSize: 18,
-    // overflow: "hidden",
-    // height: 20,
+    fontSize: 16,
+    color: "#555",  // Slightly lighter color for message preview
   },
 
   text5: {
@@ -219,6 +232,7 @@ const styleSheet = StyleSheet.create({
     columnGap: 10,
     alignSelf: "flex-end",
     alignItems: "center",
+    marginTop: 5,  // Space between message and date/check
   },
 
   text6: {
@@ -227,13 +241,16 @@ const styleSheet = StyleSheet.create({
   },
 
   image1: {
-    width: 70,
-    height: 70,
+    width: 60,  // Smaller avatar for better alignment
+    height: 60,
     backgroundColor: "white",
-    borderRadius: 40,
+    borderRadius: 30,  // Adjust to match smaller size
     justifyContent: "center",
     alignSelf: "center",
+    borderWidth: 3,
+    borderColor: "#ddd",  // Light gray border
   },
+
   signOutButton: {
     backgroundColor: "#e74c3c", // Red background for sign-out
     padding: 10,
@@ -246,4 +263,29 @@ const styleSheet = StyleSheet.create({
     fontFamily: "Montserrat-Bold",
     fontSize: 16,
   },
+
+  nameAndStatus: {
+    flexDirection: "row",
+    alignItems: "center",  // Align the name and status dot in the same row
+    marginBottom: 5,  // Space between name/status and message
+  },
+
+  statusDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginLeft: 10,  // Space between name and status dot
+  },
+
+  avatarContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 15,  // Space between avatar and text
+  },
+
+  textContainer: {
+    flex: 1,  // Take up remaining space
+    justifyContent: "center",
+  },
+
 });
