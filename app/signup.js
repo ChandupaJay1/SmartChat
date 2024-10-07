@@ -178,26 +178,30 @@ const styleSheet = StyleSheet.create({
     justifyContent: "center",
   },
   image1: {
-    width: 150, 
-    height: 150, 
+    width: "100%", 
+    height: 250,
+    marginTop:-25,
     borderRadius: 30, 
-    marginLeft: 20, 
     marginVertical: 10, 
-    alignSelf: "flex-start", 
-    resizeMode:"contain",
+    alignSelf: "center", 
     overflow:"hidden",
   },
   text1: {
     fontSize: 32,
     fontFamily: "Montserrat-Bold",
     color: "#25D366",
+    textAlign: "center",
+    marginTop: -50,
   },
+
   text2: {
     fontSize: 18,
     fontFamily: "Montserrat-Regular",
     color: "#fff",
+    textAlign: "center",
     marginBottom: 20,
   },
+
   text3: {
     fontSize: 16,
     fontFamily: "Montserrat-Bold",

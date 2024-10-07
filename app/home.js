@@ -135,7 +135,11 @@ export default function Home() {
         estimatedItemSize={200}
       />
     </LinearGradient>
+
+    
   );
+
+  
 }
 
 const styleSheet = StyleSheet.create({
@@ -181,11 +185,11 @@ const styleSheet = StyleSheet.create({
 
   view5: {
     flexDirection: "row",
-    alignItems: "center",  // Align items vertically in the same row
-    paddingVertical: 10,   // Vertical padding for each chat item
-    paddingHorizontal: 15, // Horizontal padding for spacing
-    borderBottomWidth: 1,  // Add a bottom border to separate chat items
-    borderBottomColor: "#ddd",  // Light gray border color
+    alignItems: "center",  
+    paddingVertical: 10,   
+    paddingHorizontal: 15, 
+    borderBottomWidth: 1,  
+    borderBottomColor: "#ddd",  
   },
 
   view6_1: {
@@ -215,7 +219,7 @@ const styleSheet = StyleSheet.create({
   text4: {
     fontFamily: "Montserrat-Regular",
     fontSize: 16,
-    color: "#555",  // Slightly lighter color for message preview
+    color: "#555",  
   },
 
   text5: {
@@ -232,7 +236,7 @@ const styleSheet = StyleSheet.create({
     columnGap: 10,
     alignSelf: "flex-end",
     alignItems: "center",
-    marginTop: 5,  // Space between message and date/check
+    marginTop: 5,  
   },
 
   text6: {
@@ -241,18 +245,18 @@ const styleSheet = StyleSheet.create({
   },
 
   image1: {
-    width: 60,  // Smaller avatar for better alignment
+    width: 60,  
     height: 60,
     backgroundColor: "white",
-    borderRadius: 30,  // Adjust to match smaller size
+    borderRadius: 30,  
     justifyContent: "center",
     alignSelf: "center",
     borderWidth: 3,
-    borderColor: "#ddd",  // Light gray border
+    borderColor: "#ddd",  
   },
 
   signOutButton: {
-    backgroundColor: "#e74c3c", // Red background for sign-out
+    backgroundColor: "#e74c3c", 
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
@@ -266,25 +270,25 @@ const styleSheet = StyleSheet.create({
 
   nameAndStatus: {
     flexDirection: "row",
-    alignItems: "center",  // Align the name and status dot in the same row
-    marginBottom: 5,  // Space between name/status and message
+    alignItems: "center",  
+    marginBottom: 5,  
   },
 
   statusDot: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    marginLeft: 10,  // Space between name and status dot
+    marginLeft: 10,  
   },
 
   avatarContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginRight: 15,  // Space between avatar and text
+    marginRight: 15,
   },
 
   textContainer: {
-    flex: 1,  // Take up remaining space
+    flex: 1,  
     justifyContent: "center",
   },
 
