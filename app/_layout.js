@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 import { View, Text, Pressable, Modal, StyleSheet } from 'react-native';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Menu, MenuItem } from 'react-native-material-menu'; // Import Menu for the sub-menu
 
 export default function Layout() {
   const router = useRouter();
   const segments = useSegments();
   const [modalVisible, setModalVisible] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);  // State to manage the visibility of the menu
 
   // Define pages where the header should be shown
   const isHeaderPage = segments.includes('home') || segments.includes('chat');
 
   // Sign-out logic
   const signOut = async () => {
-    await AsyncStorage.removeItem("user"); // Clear session or token
+    await AsyncStorage.removeItem("user");  // Clear session or token
     setModalVisible(false);  // Close the modal
-    router.replace("/signin");  // Navigate to the SignIn screen
+    router.replace("/index");  // Navigate to the SignIn screen
+  };
+
+  // Profile navigation logic
+  const goToProfile = () => {
+    setMenuVisible(false);
+    router.push("/profile");  // Navigate to the profile page
   };
 
   return (
@@ -29,9 +37,19 @@ export default function Layout() {
           },
           headerTintColor: '#fff',  // Custom header text color
           headerRight: route.name === 'home' ? () => (
-            <Pressable onPress={() => setModalVisible(true)} style={{ marginRight: 10 }}>
-              <Text style={{ color: 'white' }}>Sign Out</Text>
-            </Pressable>
+            <Menu
+              visible={menuVisible}
+              anchor={
+                <Pressable onPress={() => setMenuVisible(true)} style={{ marginRight: 10 }}>
+                  {/* Wrap the three-dotted icon in a <Text> component */}
+                  <Text style={{ color: 'white', fontSize: 24 }}>⋮</Text>  
+                </Pressable>
+              }
+              onRequestClose={() => setMenuVisible(false)}
+            >
+              <MenuItem onPress={goToProfile}>Profile</MenuItem>
+              <MenuItem onPress={() => { setMenuVisible(false); setModalVisible(true); }}>Sign Out</MenuItem>
+            </Menu>
           ) : null,
         })}
       />

@@ -61,7 +61,7 @@ export default function index() {
   const logoPath = require("../assets/images/logo.png");
 
   return (
-    <LinearGradient colors={["white", "white"]} style={styleSheet.view1}>
+    <LinearGradient colors={["#111", "#222"]} style={styleSheet.view1}>
       <StatusBar hidden={true} />
       <ScrollView>
         <View style={styleSheet.view2}>
@@ -194,17 +194,17 @@ const styleSheet = StyleSheet.create({
   },
 
   text2: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: "Montserrat-Regular",
-    // color: "#fff",
-    color: "#25D366",
-    marginBottom: 10,
+    color: "#fff",
+    // color: "#25D366",
+    marginBottom: 20,
   },
 
   text3: {
     fontSize: 16,
     fontFamily: "Montserrat-Bold",
-    color: "#384B70",
+    color: "#25D366",
   },
 
   input1: {
@@ -216,17 +216,20 @@ const styleSheet = StyleSheet.create({
     paddingStart: 10,
     fontSize: 18,
     fontFamily: "Montserrat-Regular",
+    borderColor: "#25D366",
+    color: "#fff",
+    marginBottom: 5,
   },
 
   text4: {
     fontSize: 16,
     fontFamily: "Montserrat-Bold",
-    color: "white",
+    color: "#fff",
   },
 
   pressable1: {
     height: 50,
-    backgroundColor: "#384B70",
+    backgroundColor: "#25D366",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
@@ -245,16 +248,18 @@ const styleSheet = StyleSheet.create({
   text5: {
     fontSize: 18,
     fontFamily: "Montserrat-Light",
+    color:"#fff",
   },
 
   avater1: {
     width: 100,
     height: 100,
-    backgroundColor: "white",
+    backgroundColor: "#2b2b2b",
     borderRadius: 50,
     justifyContent: "center",
     alignSelf: "center",
-    borderWidth: 2,
+    // borderWidth: 2,
+    marginBottom: 5,
   },
 
   view2: {
