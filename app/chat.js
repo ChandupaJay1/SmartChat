@@ -36,7 +36,7 @@ export default function Chat() {
       let user = JSON.parse(userJson);
 
       let response = await fetch(
-        "https://352f-2407-c00-e006-10c5-9dbd-f4fa-1f44-ed8a.ngrok-free.app//SmartChat/LoadChat?logged_user_id="+user.id+"&other_user_id="+item.other_user_id
+        "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/LoadChat?logged_user_id=" + user.id + "&other_user_id=" + item.other_user_id
       );
       if (response.ok) {
         let chatArray = await response.json();
@@ -49,7 +49,7 @@ export default function Chat() {
     setInterval(() => {
       fetchChatArray();
     }, 5000);
-    
+
   }, []);
 
   if (!loaded && !error) {
@@ -57,7 +57,7 @@ export default function Chat() {
   }
 
   return (
-    <LinearGradient colors={["#E5E5E5", "#FFFFFF"]} style={styles.view1}>
+    <LinearGradient colors={["#131C21", "#0B141A"]} style={styles.view1}>
       <StatusBar hidden={true} />
 
       {/* Header Section */}
@@ -66,18 +66,18 @@ export default function Chat() {
           {item.avatar_image_found === "true" ? (
             <Image
               style={styles.image1}
-              source={"https://352f-2407-c00-e006-10c5-9dbd-f4fa-1f44-ed8a.ngrok-free.app//SmartChat/AvatarImages/" + item.other_user_mobile + ".png"}
+              source={"https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/AvatarImages/" + item.other_user_mobile + ".png"}
             />
           ) : (
             <Text style={styles.text1}>{item.other_user_avatar_letters}</Text>
           )}
           {/* Online Status Indicator */}
-          <View style={item.other_user_status === 1 ? styles.statusOnline : styles.statusOffline} />
+          <View style={Number(item.other_user_status) === 1 ? styles.statusOnline : styles.statusOffline} />
         </View>
 
         <View style={styles.view4}>
           <Text style={styles.text2}>{item.other_user_name}</Text>
-          <Text style={styles.text3}>{item.other_user_status === 1 ? "Online" : "Offline"}</Text>
+          <Text style={styles.text3}>{Number(item.other_user_status) === 1 ? "Online" : "Offline"}</Text>
         </View>
       </View>
 
@@ -118,8 +118,8 @@ export default function Chat() {
               let userJson = await AsyncStorage.getItem("user");
               let user = JSON.parse(userJson);
 
-              let response = fetch(
-                "https://352f-2407-c00-e006-10c5-9dbd-f4fa-1f44-ed8a.ngrok-free.app//SmartChat/SendChat?logged_user_id=" +
+              let response = await fetch(
+                "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/SendChat?logged_user_id=" +
                 user.id + "&other_user_id=" + item.other_user_id + "&message=" + getChatText
               );
               if (response.ok) {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   view1: {
     flex: 1,
     paddingHorizontal: 10,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#0B141A",
   },
   view2: {
     marginTop: 20,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   view3: {
     position: "relative",
-    backgroundColor: "white",
+    backgroundColor: "#1F2C34",
     width: 60,
     height: 60,
     borderRadius: 30,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: "white",
+    borderColor: "#0B141A",
   },
   statusOffline: {
     position: "absolute",
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: "white",
+    borderColor: "#0B141A",
   },
   image1: {
     width: 58,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: 28,
     fontFamily: "Montserrat-Bold",
-    color: "#333",
+    color: "#D9D9D9",
   },
   view4: {
     marginLeft: 15,
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   text2: {
     fontSize: 20,
     fontFamily: "Montserrat-Bold",
-    color: "#333",
+    color: "#D9D9D9",
   },
   text3: {
     fontSize: 14,
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   view5_1: {
-    backgroundColor: "#DCF8C6", // WhatsApp-like green bubble
+    backgroundColor: "#056162", // WhatsApp dark mode right bubble
     borderRadius: 20,
     borderTopRightRadius: 0,
     marginHorizontal: 20,
@@ -217,10 +217,10 @@ const styles = StyleSheet.create({
     padding: 10,
     alignSelf: "flex-end",
     maxWidth: "80%",
-    elevation: 2,  // Add shadow for floating effect
+    elevation: 2, // Add shadow for floating effect
   },
   view5_2: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#202C33", // WhatsApp dark mode left bubble
     borderRadius: 20,
     borderTopLeftRadius: 0,
     marginHorizontal: 20,
@@ -228,12 +228,12 @@ const styles = StyleSheet.create({
     padding: 10,
     alignSelf: "flex-start",
     maxWidth: "80%",
-    elevation: 2,  // Add shadow for floating effect
+    elevation: 2, // Add shadow for floating effect
   },
   textMessage: {
     fontSize: 16,
     fontFamily: "Montserrat-Regular",
-    color: "#333",
+    color: "#D9D9D9",
   },
   view6: {
     flexDirection: "row",
@@ -257,11 +257,12 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#374045",
     paddingHorizontal: 10,
-    backgroundColor: "white",
+    backgroundColor: "#1F2C34",
     fontSize: 16,
     fontFamily: "Montserrat-Regular",
+    color: "#D9D9D9",
   },
   pressable1: {
     backgroundColor: "#128C7E",
@@ -272,4 +273,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
