@@ -3,6 +3,7 @@ import { View, Text, Pressable, Modal, StyleSheet } from 'react-native';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Menu, MenuItem } from 'react-native-material-menu';
+import { FontAwesome } from '@expo/vector-icons';
 
 const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -14,7 +15,7 @@ export default function Layout() {
     const [modalVisible, setModalVisible] = useState(false);
     const [menuVisible, setMenuVisible] = useState(false);
 
-    const isHeaderPage = segments.includes('home') || segments.includes('chat');
+    const isHeaderPage = segments.includes('home') || segments.includes('chat') || segments.includes('profile');
 
     const signOut = async () => {
         await AsyncStorage.removeItem("user");
@@ -44,7 +45,7 @@ export default function Layout() {
                                 visible={menuVisible}
                                 anchor={
                                     <Pressable onPress={() => setMenuVisible(true)} style={{ marginRight: 10 }}>
-                                        <Text style={{ color: 'white', fontSize: 24 }}>⋮</Text>  
+                                        <FontAwesome name="cog" size={30} color="white" />
                                     </Pressable>
                                 }
                                 onRequestClose={() => setMenuVisible(false)}

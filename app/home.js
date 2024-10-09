@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-import { FontAwesome6 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -26,7 +25,7 @@ export default function Home() {
       let user = JSON.parse(userJson);
 
       let response = await fetch(
-        "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/LoadHomeData?id=" +
+        "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/LoadHomeData?id=" +
         user.id
       );
 
@@ -64,19 +63,18 @@ export default function Home() {
   }
 
   return (
-
     <LinearGradient colors={["#131C21", "#0B141A"]} style={styles.view1}>
       <StatusBar hidden={true} />
 
       <Text style={styles.Uppdertext}>
-        Welcome to Discuzz. 
+        Chats 💬
       </Text>
 
       <FlashList
         data={getchatArray}
         renderItem={({ item }) => (
           <Pressable
-            style={styles.view5} // Wrap the entire chat item
+            style={styles.view5}
             onPress={() => {
               router.push({
                 pathname: "/chat",
@@ -89,7 +87,7 @@ export default function Home() {
                 {item.avatar_image_found ? (
                   <Image
                     source={
-                      "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/AvatarImages/" +
+                      "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" +
                       item.other_user_mobile +
                       ".png"
                     }
@@ -131,66 +129,56 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     backgroundColor: "#0B141A",
   },
-
   view5: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 20, // Increased padding for more vertical space between chats
-    paddingHorizontal: 20, // Increased horizontal padding for better spacing
+    paddingVertical: 20,
+    paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
     justifyContent: "space-between",
-    marginBottom: 15, // Added margin to create more space between chat items
+    marginBottom: 15,
   },
-
   leftContainer: {
     flexDirection: "row",
     alignItems: "center",
   },
-
   avatarContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginRight: 20, // Increased margin between profile picture and text
+    marginRight: 20,
   },
-
   textContainer: {
     justifyContent: "center",
   },
-
   rightContainer: {
     alignItems: "flex-end",
   },
-
   text1: {
     fontFamily: "Montserrat-Bold",
     fontSize: 22,
     color: "#D9D9D9",
   },
-
   text4: {
     fontFamily: "Montserrat-Regular",
     fontSize: 16,
-    color: "#A1A1A1", // Lighter color for message text
-    marginTop: 5, // Added some spacing between name and message
+    color: "#A1A1A1",
+    marginTop: 5,
   },
-
   text5: {
     fontFamily: "Montserrat-Regular",
     fontSize: 14,
-    color: "#A1A1A1", // Lighter color for date/time text
-    marginTop: 5, // Spacing above the date/time text
-  },
-
-  statusDot: {
-    width: 12, // Increased the size of the status dot for better visibility
-    height: 12,
-    borderRadius: 6, // Increased size so the dot is slightly bigger
+    color: "#A1A1A1",
     marginTop: 5,
   },
-
+  statusDot: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    marginTop: 5,
+  },
   image1: {
-    width: 65, 
+    width: 65,
     height: 65,
     backgroundColor: "white",
     borderRadius: 32.5,
@@ -199,21 +187,19 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: "#ddd",
   },
-
   text6: {
     fontFamily: "Montserrat-Bold",
     fontSize: 28,
-    color: "#D9D9D9", 
+    color: "#D9D9D9",
   },
-
-  Uppdertext:{
-    fontFamily:"Montserrat-Bold",
-    fontSize: 28,
+  Uppdertext: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: 40,
     color: "#32a856",
     textAlign: "left",
-    marginTop:-30,
-    paddingBottom:20,
-    paddingTop:10,
-    right:20,
-  }
+    marginTop: -30,
+    paddingBottom: 20,
+    paddingTop: 10,
+    right: 20,
+  },
 });

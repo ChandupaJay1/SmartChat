@@ -14,12 +14,12 @@ export default function Contacts() {
   useEffect(() => {
     async function fetchContacts() {
       let response = await fetch(
-        "https://your-api-endpoint.com/api/getAllUsers" // Replace with your API endpoint
+        "https://your-api-endpoint.com/api/getAllUsers" 
       );
 
       if (response.ok) {
         let json = await response.json();
-        setContacts(json.users); // Assuming the API returns a users array
+        setContacts(json.users); 
       }
     }
 
@@ -36,17 +36,17 @@ export default function Contacts() {
           <Pressable
             style={styles.contactItem}
             onPress={() => {
-              // Handle contact selection, maybe navigate to chat
+              
               router.push({
                 pathname: "/chat",
-                params: { userId: item.id }, // Example parameter, adapt as necessary
+                params: { userId: item.id }, 
               });
             }}
           >
             <View style={styles.avatarContainer}>
               {item.avatar_image_found ? (
                 <Image
-                  source={{ uri: item.avatar_url }} // Update according to your data structure
+                  source={{ uri: item.avatar_url }} 
                   contentFit="contain"
                   style={styles.image}
                 />
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   initials: {
     fontFamily: "Montserrat-Bold",
     fontSize: 28,
-    color: "#D9D9D9", // Lighter color for initials
+    color: "#D9D9D9", 
   },
 
   textContainer: {
@@ -118,6 +118,6 @@ const styles = StyleSheet.create({
   status: {
     fontFamily: "Montserrat-Regular",
     fontSize: 16,
-    color: "#A1A1A1", // Lighter gray for status
+    color: "#A1A1A1",
   },
 });

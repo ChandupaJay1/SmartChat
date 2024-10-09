@@ -59,7 +59,7 @@ export default function SignUp() {
           <Text style={styleSheet.text1}>Create Account</Text>
 
           <Text style={styleSheet.text2}>
-            Welcome to Smart Chat. Let’s get started!
+            Welcome to Discuzz. Let’s get started!
           </Text>
 
           <Pressable
@@ -135,7 +135,7 @@ export default function SignUp() {
               }
 
               let response = await fetch(
-                "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.appr/SmartChat/SignUp",
+                "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/SignUp",
                 {
                   method: "POST",
                   body: formData,

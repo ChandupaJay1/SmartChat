@@ -18,6 +18,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
+
+
 SplashScreen.preventAutoHideAsync();
 
 export default function index() {
@@ -71,10 +73,10 @@ export default function index() {
             contentFit={"contain"}
           />
 
-          <Text style={styleSheet.text1}>Create Account</Text>
+          <Text style={styleSheet.text1}>Sign In To Discuzz.</Text>
 
           <Text style={styleSheet.text2}>
-            Hello! Welcome Smart Chat. Let's start the Conversation.
+            Hello! Welcome to Discuzz. Find your Partner.
           </Text>
 
           <View style={styleSheet.avater1}>
@@ -92,7 +94,7 @@ export default function index() {
             onEndEditing={async () => {
               if (getMobile.length == 10) {
                 let response = await fetch(
-                  "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/GetLetters?mobile=" +
+                  "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/GetLetters?mobile=" +
                     getMobile
                 );
 
@@ -119,7 +121,7 @@ export default function index() {
             style={styleSheet.pressable1}
             onPress={async () => {
               let response = await fetch(
-                "https://b278-2407-c00-4007-5b6e-9dbd-f4fa-1f44-ed8a.ngrok-free.app/SmartChat/SignIn", // Correct URL
+                "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/SignIn", // Correct URL
                 {
                   method: "POST", // Ensure it's POST
                   body: JSON.stringify({
