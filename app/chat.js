@@ -36,7 +36,7 @@ export default function Chat() {
       let user = JSON.parse(userJson);
 
       let response = await fetch(
-        "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/LoadChat?logged_user_id=" + user.id + "&other_user_id=" + item.other_user_id
+        "https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/LoadChat?logged_user_id=" + user.id + "&other_user_id=" + item.other_user_id
       );
       if (response.ok) {
         let chatArray = await response.json();
@@ -66,7 +66,7 @@ export default function Chat() {
           {item.avatar_image_found === "true" ? (
             <Image
               style={styles.image1}
-              source={"https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" + item.other_user_mobile + ".png"}
+              source={"https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" + item.other_user_mobile + ".png"}
             />
           ) : (
             <Text style={styles.text1}>{item.other_user_avatar_letters}</Text>
@@ -119,7 +119,7 @@ export default function Chat() {
               let user = JSON.parse(userJson);
 
               let response = await fetch(
-                "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/SendChat?logged_user_id=" +
+                "https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/SendChat?logged_user_id=" +
                 user.id + "&other_user_id=" + item.other_user_id + "&message=" + getChatText
               );
               if (response.ok) {

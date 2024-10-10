@@ -135,7 +135,7 @@ export default function SignUp() {
               }
 
               let response = await fetch(
-                "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/SignUp",
+                "https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/SignUp",
                 {
                   method: "POST",
                   body: formData,

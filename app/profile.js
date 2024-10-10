@@ -28,7 +28,7 @@ export default function Profile() {
   const [getHasImageSet, setHasImageSet] = useState(false);
 
   const backendUrl =
-    "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/";
+    "https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/";
 
   // Load fonts
   const [loaded] = useFonts({
@@ -54,7 +54,7 @@ export default function Profile() {
         setLName(user.last_name);
         setMobile(user.mobile);
         if (user.hasProfilePic) {
-          setImage("https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" +
+          setImage("https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" +
             item.other_user_mobile +
             ".png");
           setHasImageSet(true);

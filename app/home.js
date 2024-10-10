@@ -25,7 +25,7 @@ export default function Home() {
       let user = JSON.parse(userJson);
 
       let response = await fetch(
-        "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/LoadHomeData?id=" +
+        "https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/LoadHomeData?id=" +
         user.id
       );
 
@@ -87,7 +87,7 @@ export default function Home() {
                 {item.avatar_image_found ? (
                   <Image
                     source={
-                      "https://5c47-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" +
+                      "https://65a2-2407-c00-4007-5b6e-f152-fb40-8318-e8e0.ngrok-free.app/SmartChat/AvatarImages/" +
                       item.other_user_mobile +
                       ".png"
                     }
